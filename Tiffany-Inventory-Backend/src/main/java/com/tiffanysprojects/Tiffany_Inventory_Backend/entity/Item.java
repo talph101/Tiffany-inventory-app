@@ -3,7 +3,7 @@ package com.tiffanysprojects.Tiffany_Inventory_Backend.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "newitems")
+@Table(name = "items")
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,6 +11,7 @@ public class Item {
 
     private String name;
     private double price;
+    @Column(length = 1000000)
     private String description;
     private String category;
     private String image;
