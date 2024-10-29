@@ -16,6 +16,9 @@ public class Item {
     private String category;
     private String image;
 
+    public Item(Long id, String name, double price, String description, String category, String image) {
+    }
+
 
     public Long getId() {
         return id;
