@@ -28,4 +28,8 @@ public class ItemMapper {
                 itemDto.getImage()
         );
     }
+
+    public static ItemDTO mapToItemDto(Item savedItem) {
+        return null;
+    }
 }

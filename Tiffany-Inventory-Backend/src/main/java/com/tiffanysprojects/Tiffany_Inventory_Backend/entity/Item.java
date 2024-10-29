@@ -16,6 +16,10 @@ public class Item {
     private String category;
     private String image;
 
+    public Item(){
+
+    }
+
     public Item(Long id, String name, double price, String description, String category, String image) {
     }
 
