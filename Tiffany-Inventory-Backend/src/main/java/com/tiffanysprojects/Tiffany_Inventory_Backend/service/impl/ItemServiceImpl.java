@@ -47,5 +47,12 @@ public class ItemServiceImpl  implements ItemService {
         return itemRepository.findById(itemId).orElse(null);
     }
 
+    @Override
+    public Item deleteItem(Long itemId) {
+        Item itemToDelete = itemRepository.findById(itemId).orElse(null);
+        itemRepository.deleteById(itemId);
+        return itemToDelete;
+    }
+
 
 }

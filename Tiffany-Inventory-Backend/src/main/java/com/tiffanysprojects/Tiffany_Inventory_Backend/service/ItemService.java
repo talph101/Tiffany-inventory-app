@@ -16,4 +16,6 @@ public interface ItemService {
     List<Item> findAll();
 
     Item getItemById(Long itemId);
+
+    Item deleteItem(Long itemId);
 }

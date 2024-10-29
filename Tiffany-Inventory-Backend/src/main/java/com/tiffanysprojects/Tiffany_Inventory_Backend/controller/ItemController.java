@@ -47,6 +47,10 @@ public class ItemController {
     //UPDATE item
 
     //DELETE item
+    @DeleteMapping("{id}")
+    public Item deleteItem(@PathVariable("id") Long itemId){
+        return itemService.deleteItem(itemId);
+    }
 
 
 }
