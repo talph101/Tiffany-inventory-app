@@ -9,7 +9,7 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/items")
+@RequestMapping("/api/items")
 public class ItemController {
     private ItemService itemService;
 
@@ -33,6 +33,7 @@ public class ItemController {
 
 
     //GET one item
+    @GetMapping("{id}")
 
     //UPDATE item
 
