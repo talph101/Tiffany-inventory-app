@@ -1,17 +1,11 @@
-package com.tiffanysprojects.Tiffany_Inventory_Backend.entity;
+package com.tiffanysprojects.Tiffany_Inventory_Backend.dto;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
 
-@Entity //used to specify a class a JPA Entity
-@Table(name = "items")
-public class Item {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //automatically generate id
+public class ItemDTO {
     private Long id;
-
     private String name;
     private double price;
-    @Column(length = 1000000)
     private String description;
     private String category;
     private String image;
@@ -65,3 +59,5 @@ public class Item {
         this.image = image;
     }
 }
+
+
