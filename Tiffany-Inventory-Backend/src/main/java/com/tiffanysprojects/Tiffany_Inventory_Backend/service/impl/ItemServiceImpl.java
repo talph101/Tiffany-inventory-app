@@ -18,11 +18,11 @@ public class ItemServiceImpl  implements ItemService {
         this.itemRepository = itemRepository;
     }
 
-    @Override
-    public List<ItemDTO> getAllItems() {
-        List<Item> items = itemRepository.findAll();
-        return items.stream().map((item) -> ItemMapper.mapToItemDto(item)).collect(Collectors.toList());
-    }
+//    @Override
+//    public List<ItemDTO> getAllItems() {
+//        List<Item> items = itemRepository.findAll();
+//        return items.stream().map((item) -> ItemMapper.mapToItemDto(item)).collect(Collectors.toList());
+//    }
 
     @Override
     public Item createItem(Item item) {
@@ -41,5 +41,11 @@ public class ItemServiceImpl  implements ItemService {
     public List<Item> findAll() {
         return itemRepository.findAll();
     }
+
+    @Override
+    public Item getItemById(Long itemId) {
+        return itemRepository.findById(itemId).orElse(null);
+    }
+
 
 }

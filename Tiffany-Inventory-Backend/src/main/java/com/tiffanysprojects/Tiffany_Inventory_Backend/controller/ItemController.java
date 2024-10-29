@@ -3,6 +3,7 @@ package com.tiffanysprojects.Tiffany_Inventory_Backend.controller;
 
 import com.tiffanysprojects.Tiffany_Inventory_Backend.entity.Item;
 import com.tiffanysprojects.Tiffany_Inventory_Backend.service.ItemService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,12 +12,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/items")
 public class ItemController {
+
     private ItemService itemService;
+
+
 
     public ItemController(ItemService itemService) {
         this.itemService = itemService;
     }
-
 
 // ResponseEntity to Manipulate the HTTP Response
 // GET item
@@ -34,6 +37,12 @@ public class ItemController {
 
     //GET one item
     @GetMapping("{id}")
+    public Item getItemById(@PathVariable("id") Long itemId ){
+        return itemService.getItemById(itemId);
+
+
+    }
+
 
     //UPDATE item
 

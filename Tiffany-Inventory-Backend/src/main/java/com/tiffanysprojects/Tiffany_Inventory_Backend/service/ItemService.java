@@ -9,9 +9,11 @@ import java.util.List;
 // They are used to achieve abstraction and multiple inheritance.
 
 public interface ItemService {
-    List<ItemDTO> getAllItems();
+//    List<ItemDTO> getAllItems();
 
     Item createItem(Item item);
 
     List<Item> findAll();
+
+    Item getItemById(Long itemId);
 }
