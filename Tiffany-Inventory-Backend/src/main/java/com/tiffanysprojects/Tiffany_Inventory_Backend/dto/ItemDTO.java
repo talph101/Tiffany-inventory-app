@@ -2,6 +2,8 @@ package com.tiffanysprojects.Tiffany_Inventory_Backend.dto;
 
 import jakarta.persistence.Column;
 
+//THIS IS NOT NEEDED
+
 public class ItemDTO {
     private Long id;
     private String name;

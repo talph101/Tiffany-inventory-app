@@ -3,6 +3,8 @@ package com.tiffanysprojects.Tiffany_Inventory_Backend.mapper;
 import com.tiffanysprojects.Tiffany_Inventory_Backend.dto.ItemDTO;
 import com.tiffanysprojects.Tiffany_Inventory_Backend.entity.Item;
 
+//THIS IS NOT NEEDED
+
 public class ItemMapper {
     //Used to map Item entity to Item DTO
     public static ItemDTO mapToEmployeeDto(Item item){
