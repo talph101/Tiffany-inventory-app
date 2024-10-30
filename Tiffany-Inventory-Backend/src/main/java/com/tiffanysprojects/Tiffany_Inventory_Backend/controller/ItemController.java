@@ -15,14 +15,11 @@ public class ItemController {
 
     private ItemService itemService;
 
-
-
     public ItemController(ItemService itemService) {
         this.itemService = itemService;
     }
 
-// ResponseEntity to Manipulate the HTTP Response
-// GET item
+    // GET item
     @GetMapping
     public List<Item> getAllItems(){
         return itemService.findAll();
@@ -39,8 +36,6 @@ public class ItemController {
     @GetMapping("{id}")
     public Item getItemById(@PathVariable("id") Long itemId ){
         return itemService.getItemById(itemId);
-
-
     }
 
     //UPDATE item

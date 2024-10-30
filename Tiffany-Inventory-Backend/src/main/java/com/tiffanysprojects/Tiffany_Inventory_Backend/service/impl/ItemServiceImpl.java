@@ -18,24 +18,11 @@ public class ItemServiceImpl  implements ItemService {
         this.itemRepository = itemRepository;
     }
 
-//    @Override
-//    public List<ItemDTO> getAllItems() {
-//        List<Item> items = itemRepository.findAll();
-//        return items.stream().map((item) -> ItemMapper.mapToItemDto(item)).collect(Collectors.toList());
-//    }
 
     @Override
     public Item createItem(Item item) {
         return itemRepository.save(item);
     }
-
-//    @Override
-//    public ItemDTO createItem(ItemDTO itemDto) {
-////      MapTo is a library that programmatically generates the necessary code to map one object to another during compile-time.
-//        Item item = ItemMapper.mapToItem(itemDto);
-//        Item savedItem = itemRepository.save(item);
-//        return ItemMapper.mapToItemDto(savedItem);
-//    }
 
     @Override
     public List<Item> findAll() {
@@ -54,7 +41,7 @@ public class ItemServiceImpl  implements ItemService {
         existingItem.setPrice(updatedItem.getPrice());
         existingItem.setCategory(updatedItem.getCategory());
         existingItem.setImage(updatedItem.getImage());
-        
+
         return itemRepository.save(existingItem);
     }
 
