@@ -46,6 +46,17 @@ public class ItemServiceImpl  implements ItemService {
     public Item getItemById(Long itemId) {
         return itemRepository.findById(itemId).orElse(null);
     }
+    @Override
+    public Item updateItem(Long itemId, Item updatedItem) {
+        Item existingItem = itemRepository.findById(itemId).orElse(null);
+        existingItem.setName(updatedItem.getName());
+        existingItem.setDescription(updatedItem.getDescription());
+        existingItem.setPrice(updatedItem.getPrice());
+        existingItem.setCategory(updatedItem.getCategory());
+        existingItem.setImage(updatedItem.getImage());
+        
+        return itemRepository.save(existingItem);
+    }
 
     @Override
     public Item deleteItem(Long itemId) {
@@ -54,11 +65,6 @@ public class ItemServiceImpl  implements ItemService {
         return itemToDelete;
     }
 
-    @Override
-    public Item updateItem(Long itemId, Item updatedItem) {
-        Item existingItem = itemRepository.findById(itemId).orElse(null);
-        return itemRepository.save(existingItem);
-    }
 
 
 }
