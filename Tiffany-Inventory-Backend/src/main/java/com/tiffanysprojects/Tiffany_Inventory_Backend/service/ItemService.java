@@ -18,4 +18,7 @@ public interface ItemService {
     Item getItemById(Long itemId);
 
     Item deleteItem(Long itemId);
+
+
+    Item updateItem(Long itemId, Item updatedItem);
 }
