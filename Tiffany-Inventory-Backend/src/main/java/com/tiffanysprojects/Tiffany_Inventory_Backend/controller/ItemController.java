@@ -51,5 +51,11 @@ public class ItemController {
         return itemService.deleteItem(itemId);
     }
 
+    @GetMapping("/search/{name}")
+    public List<Item> searchItem(@PathVariable("name") String itemName){
+        return itemService.searchItem(itemName);
+
+    }
+
 
 }

@@ -21,5 +21,5 @@ public interface ItemService {
 
     Item deleteItem(Long itemId);
 
-
+    List<Item> searchItem(String itemName);
 }

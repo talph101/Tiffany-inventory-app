@@ -52,6 +52,10 @@ public class ItemServiceImpl  implements ItemService {
         return itemToDelete;
     }
 
-
+    @Override
+    public List<Item> searchItem(String itemName) {
+        return itemRepository.findAll().stream().filter(item -> item.getName().toLowerCase().contains(itemName.toLowerCase()))
+                .collect(Collectors.toList());
+    }
 
 }
