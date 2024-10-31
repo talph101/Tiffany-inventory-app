@@ -3,6 +3,8 @@ package com.tiffanysprojects.Tiffany_Inventory_Backend.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table
 public class Cart {
@@ -12,7 +14,8 @@ public class Cart {
     private Long id;
 
     @OneToMany
-    private Item item;
+    //will possibly need this next to annotation:  (mappedBy = "cart", cascade = CascadeType.ALL)
+    private List<Item> item;
 
     public Cart() {
     }
@@ -25,11 +28,11 @@ public class Cart {
         this.id = id;
     }
 
-    public Item getItem() {
+    public List<Item> getItem() {
         return item;
     }
 
-    public void setItem(Item item) {
+    public void setItem(List<Item> item) {
         this.item = item;
     }
 }
