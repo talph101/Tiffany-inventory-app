@@ -15,7 +15,7 @@ public class Cart {
 
     @OneToMany
     //will possibly need this next to annotation:  (mappedBy = "cart", cascade = CascadeType.ALL)
-    private List<Item> item;
+    private List<Item> items;
 
     public Cart() {
     }
@@ -28,11 +28,11 @@ public class Cart {
         this.id = id;
     }
 
-    public List<Item> getItem() {
-        return item;
+    public List<Item> getItems() {
+        return items;
     }
 
-    public void setItem(List<Item> item) {
-        this.item = item;
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 }
