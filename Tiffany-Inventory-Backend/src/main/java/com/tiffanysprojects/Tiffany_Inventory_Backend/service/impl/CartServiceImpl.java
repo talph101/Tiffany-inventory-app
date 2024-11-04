@@ -21,11 +21,6 @@ public class CartServiceImpl implements CartService {
         this.itemRepository = itemRepository;
     }
 
-    //    @Override
-//    public void addToCart(Cart cart, Item item){
-//        cart.getItems().add(item);
-//        cartRepository.save(cart);
-//    }
 
     private Cart createCart(){
         return cartRepository.findAll().stream().findFirst().orElseGet(()-> cartRepository.save(new Cart()));
@@ -46,6 +41,10 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public void deleteItem(Long itemId) {
+        Cart cart = createCart();
+        Item itemToDelete = itemRepository.findById(itemId).orElse(null);
+        cart.removeItem(itemToDelete);
+        cartRepository.save(cart);
 
     }
 }

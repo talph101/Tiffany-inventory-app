@@ -29,8 +29,15 @@ public class CartController {
         return cartService.getCart();
     }
 
-//    @DeleteMapping
+
+    //this may cause problems later in the frontend. Might have to use this version
+//    @DeleteMapping("{id}")
 //    public Item deleteItemInCart(@PathVariable("id") Long itemId){
 //        return cartService.deleteItem(itemId);
 //    }
+
+    @DeleteMapping("{id}")
+    public void deleteItemInCart(@PathVariable("id") Long itemId){
+        cartService.deleteItem(itemId);
+    }
 }
