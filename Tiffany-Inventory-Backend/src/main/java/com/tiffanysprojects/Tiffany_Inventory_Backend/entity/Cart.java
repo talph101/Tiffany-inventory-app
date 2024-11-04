@@ -3,6 +3,7 @@ package com.tiffanysprojects.Tiffany_Inventory_Backend.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,9 +14,10 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //automatically generate id
     private Long id;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     //will possibly need this next to annotation:  (mappedBy = "cart", cascade = CascadeType.ALL)
-    private List<Item> items;
+    //have to store it in something so added new ArrayList. Polymorphism example?
+    private List<Item> items = new ArrayList<>();
 
     public Cart() {
     }
@@ -34,5 +36,15 @@ public class Cart {
 
     public void setItems(List<Item> items) {
         this.items = items;
+    }
+
+    //new
+
+    public void addItem(Item item){
+        this.items.add(item);
+    }
+
+    public void removeItem(Item item){
+        this.items.remove(item);
     }
 }

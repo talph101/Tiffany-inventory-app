@@ -18,11 +18,15 @@ public interface CartService {
 //DELETE /cart/items/{itemId}
 //Removes a specific item from the cart.
 
-//create
-Cart addToCart(Cart cart, Item item);
+//create / add item to cart
+Cart addToCart(Long itemId);
 
-List<Cart> getCart();
+//get all items in the cart
+Cart getCart();
 
 
-Item deleteItem(Long itemId);
+void deleteItem(Long itemId);
 }
+
+//updated. The cart is not a list.
+//everything is of data type Cart. Cart is one single thing

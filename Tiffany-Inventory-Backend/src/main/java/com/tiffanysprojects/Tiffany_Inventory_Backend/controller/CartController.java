@@ -19,18 +19,18 @@ public class CartController {
     }
 
     //cart represents the cart ID. There is only one cart though
-    @PostMapping
-    public Cart addItemToCart(@RequestBody Cart cart, @RequestParam Item item){
-        return cartService.addToCart(cart, item);
+    @PostMapping("{id}")
+    public Cart addItemToCart(@PathVariable("id") Long itemId){
+        return cartService.addToCart(itemId);
     }
 
-    @GetMapping
-    public List<Cart> getCart(){
-        return cartService.getCart();
-    }
-
-    @DeleteMapping
-    public Item deleteItemInCart(@PathVariable("id") Long itemId){
-        return cartService.deleteItem(itemId);
-    }
+//    @GetMapping
+//    public List<Cart> getCart(){
+//        return cartService.getCart();
+//    }
+//
+//    @DeleteMapping
+//    public Item deleteItemInCart(@PathVariable("id") Long itemId){
+//        return cartService.deleteItem(itemId);
+//    }
 }
