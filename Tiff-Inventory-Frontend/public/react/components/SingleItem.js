@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { UpdateForm } from "./UpdateForm";
-export const SingleItem = ({ item,deleteItem,goBack,
+
+
+export const SingleItem = ({ item, deleteItem, goBack,
 itemRefresh,
   setItemRefresh,
 }) => {
@@ -43,6 +45,7 @@ itemRefresh,
             <button className="deleteBtn" onClick={() => deleteItem(item.id)}>
               Delete
             </button>
+            <button className="editBtn">Cart</button>
           </div>
         </div>
       )}
