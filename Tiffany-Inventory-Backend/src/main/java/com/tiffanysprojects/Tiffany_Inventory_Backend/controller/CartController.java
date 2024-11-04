@@ -24,11 +24,11 @@ public class CartController {
         return cartService.addToCart(itemId);
     }
 
-//    @GetMapping
-//    public List<Cart> getCart(){
-//        return cartService.getCart();
-//    }
-//
+    @GetMapping
+    public Cart getCart(){
+        return cartService.getCart();
+    }
+
 //    @DeleteMapping
 //    public Item deleteItemInCart(@PathVariable("id") Long itemId){
 //        return cartService.deleteItem(itemId);
