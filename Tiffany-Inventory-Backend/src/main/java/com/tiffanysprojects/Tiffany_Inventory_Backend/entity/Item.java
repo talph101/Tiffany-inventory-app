@@ -23,12 +23,6 @@ public class Item {
 //
 //Would you like guidance on how to handle these operations programmatically?
 
-
-    //might need this???
-//     @ManyToOne
-//    @JoinColumn(name = "cart_id")
-//    private Cart cart; // Bidirectional link back to Cart
-
     public Item(){
 
     }
