@@ -4,7 +4,7 @@ import { UpdateForm } from "./UpdateForm";
 
 export const SingleItem = ({ item, deleteItem, goBack,
 itemRefresh,
-  setItemRefresh,
+  setItemRefresh, addToCart
 }) => {
   const currency = item.price.toFixed(2);
 
@@ -45,7 +45,7 @@ itemRefresh,
             <button className="deleteBtn" onClick={() => deleteItem(item.id)}>
               Delete
             </button>
-            <button className="editBtn">Cart</button>
+            <button className="editBtn" onClick={() => addToCart(item)}>Add to Cart</button>
           </div>
         </div>
       )}
