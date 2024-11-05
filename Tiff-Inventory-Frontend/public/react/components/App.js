@@ -76,7 +76,7 @@ export const App = () => {
 
 	return (
 		<main>
-			<h1 className="header">Tee-JAM Store</h1>
+			<h1 className="header">StockSync Store</h1>
 			{searchView || singleItem ? <></> : <button onClick={handleAddClick}>{addView ? "Back" : "Add Item"}</button>}
 			<br></br>
 			{addView || singleItem ? <></> : <button onClick={handleSearchClick}>{searchView ? "Back" : "Search"}</button>}
