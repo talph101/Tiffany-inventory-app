@@ -171,6 +171,8 @@ export const App = () => {
 			</main>
 	);
 
+
+	//old code
 // 	return (
 // 		<main>
 // 			<h1 className="header">TiffTrack Store</h1>

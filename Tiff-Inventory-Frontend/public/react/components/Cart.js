@@ -5,26 +5,27 @@ import { ItemList } from './ItemList'
 export function Cart({ cart, goBackToList }) {
 
 
-//   return (
-//     <div>
-//         <h2>Your Cart</h2>
-//         {cart.length > 0 ? (
-//             <ul>
-//                 {cart.map((item, index) => (
-//                     <li key={index}>
-//                         <h3>{item.name}</h3>
-//                         <p>{item.descritption}</p>
-//                         <p>Price: ${item.price.toFixed(2)}</p>
-//                     </li>
-//                 ))}
-//             </ul>
-//         ) :(
-//             <p>Your cart is empty.</p>
-//         )}
-//         <button onClick={goBackToList}>GO BACK</button>
-//     </div>
-//   );
-// }
+    //adds item to cart but does not display item
+  return (
+    <div>
+        <h2>Your Cart</h2>
+        {cart.length > 0 ? (
+            <ul>
+                {cart.map((item, index) => (
+                    <li key={index}>
+                        <h3>{item.name}</h3>
+                        <p>{item.descritption}</p>
+                        <p>Price: ${item.price.toFixed(2)}</p>
+                    </li>
+                ))}
+            </ul>
+        ) :(
+            <p>Your cart is empty.</p>
+        )}
+        <button onClick={goBackToList}>GO BACK</button>
+    </div>
+  );
+}
 
 
 // return (
@@ -70,6 +71,6 @@ export function Cart({ cart, goBackToList }) {
 //         </main>
 // );
 
-}
+// }
 
 export default Cart
