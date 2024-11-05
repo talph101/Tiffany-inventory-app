@@ -110,11 +110,6 @@ export const App = () => {
 		}
 		
 	}
-	
-	// function addToCart(){
-	// 	setCart([...cart, item]);
-	// 	setCartView(true);
-	// }
 
 
 	//go Back to Item list
@@ -162,7 +157,7 @@ export const App = () => {
 						{singleItem ? ( <SingleItem item={singleItem} goBack={goBackToList} deleteItem={deleteItem} itemRefresh={itemRefresh} setItemRefresh={setItemRefresh} addToCart={addToCart}/>
 						) : (
 							<>
-							<h2 className="subheader">All items</h2>
+							<h2 className="subheader">All items 🔥</h2>
 							<div className="item-display">
 								<ItemList items={items} onItemClick={fetchItemById}/>
 							</div>
