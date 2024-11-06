@@ -19,7 +19,6 @@ public class CartController {
         this.cartService = cartService;
     }
 
-    //cart represents the cart ID. There is only one cart though
     @PostMapping("{id}")
     public Cart addItemToCart(@PathVariable("id") Long itemId){
         return cartService.addToCart(itemId);
@@ -30,12 +29,6 @@ public class CartController {
         return cartService.getCart();
     }
 
-
-    //this may cause problems later in the frontend. Might have to use this version
-//    @DeleteMapping("{id}")
-//    public Item deleteItemInCart(@PathVariable("id") Long itemId){
-//        return cartService.deleteItem(itemId);
-//    }
 
     @DeleteMapping("{id}")
     public void deleteItemInCart(@PathVariable("id") Long itemId){

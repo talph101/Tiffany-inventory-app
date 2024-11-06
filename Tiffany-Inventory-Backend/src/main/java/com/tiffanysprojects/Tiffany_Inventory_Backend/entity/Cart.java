@@ -15,8 +15,6 @@ public class Cart {
     private Long id;
 
     @OneToMany(cascade = CascadeType.ALL)
-    //will possibly need this next to annotation:  (mappedBy = "cart", cascade = CascadeType.ALL)
-    //have to store it in something so added new ArrayList. Polymorphism example?
     private List<Item> items = new ArrayList<>();
 
     public Cart() {
