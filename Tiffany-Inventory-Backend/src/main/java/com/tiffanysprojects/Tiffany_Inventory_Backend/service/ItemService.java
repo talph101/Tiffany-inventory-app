@@ -1,6 +1,5 @@
 package com.tiffanysprojects.Tiffany_Inventory_Backend.service;
 
-import com.tiffanysprojects.Tiffany_Inventory_Backend.dto.ItemDTO;
 import com.tiffanysprojects.Tiffany_Inventory_Backend.entity.Item;
 
 import java.util.List;

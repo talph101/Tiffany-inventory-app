@@ -1,8 +1,6 @@
 package com.tiffanysprojects.Tiffany_Inventory_Backend.service.impl;
 
-import com.tiffanysprojects.Tiffany_Inventory_Backend.dto.ItemDTO;
 import com.tiffanysprojects.Tiffany_Inventory_Backend.entity.Item;
-import com.tiffanysprojects.Tiffany_Inventory_Backend.mapper.ItemMapper;
 import com.tiffanysprojects.Tiffany_Inventory_Backend.repository.ItemRepository;
 import com.tiffanysprojects.Tiffany_Inventory_Backend.service.ItemService;
 import org.springframework.stereotype.Service;
