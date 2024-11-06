@@ -13,7 +13,6 @@ import java.util.List;
 @RequestMapping("/api/items")
 public class ItemController {
 
-    //injected the service because this is where it pulls from to do the crud operations methods.
     private ItemService itemService;
 
     public ItemController(ItemService itemService) {

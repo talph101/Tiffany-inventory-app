@@ -16,6 +16,13 @@ public class Item {
     private String category;
     private String image;
 
+
+//Don't need it
+//    No changes are needed since you already plan to add items to a cart dynamically.
+//When an item is added to the cart, programmatically set its relationship to the cart (without persisting it immediately as belonging to the cart in the database, if that's the desired behavior).
+//
+//Would you like guidance on how to handle these operations programmatically?
+
     public Item(){
 
     }

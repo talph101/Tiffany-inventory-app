@@ -3,6 +3,7 @@ import { ItemList } from "./ItemList"
 import { SingleItem } from "./SingleItem"
 import { ItemForm } from "./itemform"
 import { Search } from "./Search"
+import { Cart } from "./Cart"
 
 // import and prepend the api url to any fetch calls
 import apiURL from "../api"
@@ -13,6 +14,9 @@ export const App = () => {
 	const [itemRefresh, setItemRefresh] = useState(false)
 	const [addView, setAddView] = useState(false)
 	const [searchView, setSearchView] = useState(false)
+
+	const [cartView, setCartView] = useState(false);
+	const [cart, setCart] = useState([]);
 
 	async function fetchItems() {
 		try {
@@ -61,9 +65,62 @@ export const App = () => {
 			console.log("Error deleting item: ", err)
 		}
 	}
+
+	//Add item to cart
+	async function addToCart(item) {
+		try{
+			const response = await fetch(`${apiURL}/items/cart/${item.id}`, {
+				method: "POST",
+			});
+
+			if (response.ok) {
+				await fetchCart();
+				setCartView(true);
+			} else {
+				console.log("Error adding item to cart: ", response.statusText);
+			} //Switch to cart view once item is added
+		} catch (err) {
+			console.log("Error adding item to cart: ", err);
+		}
+		
+	}
+	//helper function to fetch all items from the cart
+	async function fetchCart(){
+		try{
+			const response = await fetch(`${apiURL}/items/cart`);
+			const cartData = await response.json();
+			setCart(cartData.items);
+		} catch (err) {
+			console.log("Error fetching cart items: ", err);
+		}
+	}
+
+	useEffect(() => {
+		if (cartView) {
+			fetchCart();
+		} 
+	}, [cartView]);
+
+	//DELETE from cart
+	async function removeFromCart(itemId){
+		try{
+			await fetch(`${apiURL}/items/cart/${itemId}`, {
+				method: "DELETE",
+			});
+			//after deleting this will re-fetch cart.
+			const response = await fetch(`${apiURL}/items/cart`);
+			const updatedCart = await response.json();
+			setCart(updatedCart.items);
+		} catch (err) {
+			console.log("Error removing item from cart: ", err);
+		}
+	}
+
 	//go Back to Item list
 	function goBackToList() {
 		setSingleItem(null)
+		//Added (Tiff)
+		setCartView(false);
 	}
 
 	function handleAddClick(e) {
@@ -74,31 +131,47 @@ export const App = () => {
 		setSearchView(!searchView)
 	}
 
+
 	return (
 		<main>
 			<h1 className="header">StockSync Store</h1>
-			{searchView || singleItem ? <></> : <button onClick={handleAddClick}>{addView ? "Back" : "Add Item"}</button>}
-			<br></br>
-			{addView || singleItem ? <></> : <button onClick={handleSearchClick}>{searchView ? "Back" : "Search"}</button>}
-
-			{searchView ? (
-				<Search handleSearchClick={handleSearchClick} fetchItemById={fetchItemById} />
+			{/* ADDED */}
+			{cartView ? (
+				<Cart cart={cart} goBackToList={goBackToList} removeFromCart={removeFromCart} />
 			) : (
 				<>
-					{addView ? <></> : singleItem ? <></> : <h2 className="subheader">All items 🔥</h2>}
-					{addView ? (
-						<ItemForm addView={addView} setAddView={setAddView} itemRefresh={itemRefresh} setItemRefresh={setItemRefresh} />
+					<button onClick={() => setCartView(true)}>View Cart</button>
+					{searchView || singleItem ? (
+						<></>
 					) : (
-						<div className="item-display">
-							{singleItem ? (
-								<SingleItem item={singleItem} goBack={goBackToList} deleteItem={deleteItem} itemRefresh={itemRefresh} setItemRefresh={setItemRefresh} />
-							) : (
-								<ItemList items={items} onItemClick={fetchItemById} />
-							)}
-						</div>
+						<button onClick={handleAddClick}>{addView ? "Back" : "Add Item"}</button>
 					)}
-				</>
+					<br />
+					{addView || singleItem ? (
+						 <></>
+						 ) : (
+						 <button onClick={handleSearchClick}>{searchView ? "Back" : "Search"}</button>
+						 )}
+					{searchView ? (
+						<Search handleSearchClick={handleSearchClick} fetchItemById={fetchItemById}/>
+					) : addView ? (<ItemForm addView={addView} setAddView={setAddView} itemRefresh={itemRefresh} setItemRefresh={setItemRefresh}/>
+	
+					) : (
+						<>
+						{singleItem ? ( <SingleItem item={singleItem} goBack={goBackToList} deleteItem={deleteItem} itemRefresh={itemRefresh} setItemRefresh={setItemRefresh} addToCart={addToCart}/>
+						) : (
+							<>
+							<h2 className="subheader">All items 🔥</h2>
+							<div className="item-display">
+								<ItemList items={items} onItemClick={fetchItemById}/>
+							</div>
+							</>
+						)}
+						</>
+					)}
+					
+				</>			
 			)}
-		</main>
-	)
+			</main>
+	);
 }
