@@ -2,7 +2,7 @@ import React from 'react'
 import { SingleItem } from './SingleItem'
 import { ItemList } from './ItemList'
 
-export function Cart({ cart, goBackToList }) {
+export function Cart({ cart, goBackToList, removeFromCart }) {
 
 
     //adds item to cart but does not display item
@@ -17,61 +17,16 @@ export function Cart({ cart, goBackToList }) {
                         <h3>{item.name}</h3>
                         <p>{item.descritption}</p>
                         <p>Price: ${item.price.toFixed(2)}</p>
+                        <button onClick={() => removeFromCart(item.id)}>Remove</button>
                     </li>
                 ))}
             </ul>
         ) :(
             <p>Your cart is empty.</p>
         )}
-        <button onClick={goBackToList}>GO BACK</button>
+        <button onClick={goBackToList}>Back</button>
     </div>
   );
 }
-
-
-// return (
-//     <main>
-//         <h1 className="header">TiffTrack Store</h1>
-//         {/* ADDED */}
-//         {cartView ? (
-//             <Cart cart={cart} goBackToList={goBackToList} />
-//         ) : (
-//             <>
-//                 <button onClick={() => setCartView(true)}>View Cart</button>
-//                 {searchView || singleItem ? (
-//                     <></>
-//                 ) : (
-//                     <button onClick={handleAddClick}>{addView ? "Back" : "Add Item"}</button>
-//                 )}
-//                 <br />
-//                 {addView || singleItem ? (
-//                      <></>
-//                      ) : (
-//                      <button onClick={handleSearchClick}>{searchView ? "Back" : "Search"}</button>
-//                      )}
-//                 {searchView ? (
-//                     <Search handleSearchClick={handleSearchClick} fetchItemById={fetchItemById}/>
-//                 ) : addView ? (<ItemForm addView={addView} setAddView={setAddView} itemRefresh={itemRefresh} setItemRefresh={setItemRefresh}/>
-
-//                 ) : (
-//                     <>
-//                     {singleItem ? ( <SingleItem item={singleItem} goBack={goBackToList} deleteItem={deleteItem} itemRefresh={itemRefresh} setItemRefresh={setItemRefresh} addToCart={addToCart}/>
-//                     ) : (
-//                         <>
-//                         <h2 className="subheader">All items</h2>
-//                         <div className="item-display">
-//                             <ItemList items={items} onItemClick={fetchItemById}/>
-//                         </div>
-//                         </>
-//                     )}
-//                     </>
-//                 )}
-                
-//             </>			
-//         )}
-//         </main>
-// );
-
-// }
 
 export default Cart
