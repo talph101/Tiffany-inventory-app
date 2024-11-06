@@ -1,6 +1,6 @@
 ## StockSync Inventory App
 
-An eCommerce store where internal consumers can directly view and manage products without any intermediary service over the internet. The goal was to develop an easy to use web-based interface where customers can search for products, and view a complete description of the product. Since the store is meant for internal use, Users are allowed to add, update and delete items.
+An eCommerce store where internal users can directly view and manage products without any intermediary service over the internet. The goal was to develop an easy to use web-based interface where users can search for products, and view a complete description of the product. Since the store is meant for internal use only, users are allowed to add, update and delete items.
 
 ## Getting Started
 
