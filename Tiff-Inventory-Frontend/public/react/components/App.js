@@ -74,7 +74,7 @@ export const App = () => {
 			});
 
 			if (response.ok) {
-				await fetchCartItems();
+				await fetchCart();
 				setCartView(true);
 			} else {
 				console.log("Error adding item to cart: ", response.statusText);
