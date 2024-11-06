@@ -102,15 +102,33 @@ export const App = () => {
 				// body: JSON.stringify(item),
 			});
 
-			const updatedCart = await response.json();
-			setCart(updatedCart);
-			setCartView(true); //Switch to cart view once item is added
+			if (response.ok) {
+				await fetchCartItems();
+				setCartView(true);
+			} else {
+				console.log("Error adding item to cart: ", response.statusText);
+			} //Switch to cart view once item is added
 		} catch (err) {
 			console.log("Error adding item to cart: ", err);
 		}
 		
 	}
+	//helper function to fetch all items from the cart
+	async function fetchCart(){
+		try{
+			const response = await fetch(`${apiURL}/items/cart`);
+			const cartData = await response.json();
+			setCart(cartData.items);
+		} catch (err) {
+			console.log("Error fetching cart items: ", err);
+		}
+	}
 
+	useEffect(() => {
+		if (cartView) {
+			fetchCart();
+		} 
+	}, [cartView]);
 
 	//go Back to Item list
 	function goBackToList() {

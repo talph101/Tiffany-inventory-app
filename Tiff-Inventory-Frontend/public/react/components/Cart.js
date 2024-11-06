@@ -13,6 +13,7 @@ export function Cart({ cart, goBackToList }) {
             <ul>
                 {cart.map((item, index) => (
                     <li key={index}>
+                        <img src={item.image} alt={item.name} style={{width: '50px'}}/>
                         <h3>{item.name}</h3>
                         <p>{item.descritption}</p>
                         <p>Price: ${item.price.toFixed(2)}</p>
