@@ -130,7 +130,7 @@ export const App = () => {
 
 	return (
 		<main>
-			<h1 className="header">TiffTrack Store</h1>
+			<h1 className="header">StockSync Store</h1>
 			{/* ADDED */}
 			{cartView ? (
 				<Cart cart={cart} goBackToList={goBackToList} />
