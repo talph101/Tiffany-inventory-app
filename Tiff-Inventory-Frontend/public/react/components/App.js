@@ -84,7 +84,7 @@ export const App = () => {
 		}
 		
 	}
-	//helper function to fetch all items from the cart
+	//fetch all items from the cart
 	async function fetchCart(){
 		try{
 			const response = await fetch(`${apiURL}/items/cart`);
@@ -119,7 +119,7 @@ export const App = () => {
 	//go Back to Item list
 	function goBackToList() {
 		setSingleItem(null)
-		//Added (Tiff)
+
 		setCartView(false);
 	}
 
@@ -135,7 +135,6 @@ export const App = () => {
 	return (
 		<main>
 			<h1 className="header">StockSync Store</h1>
-			{/* ADDED */}
 			{cartView ? (
 				<Cart cart={cart} goBackToList={goBackToList} removeFromCart={removeFromCart} />
 			) : (

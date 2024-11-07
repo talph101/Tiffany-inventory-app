@@ -5,7 +5,6 @@ import { ItemList } from './ItemList'
 export function Cart({ cart, goBackToList, removeFromCart }) {
 
 
-    //adds item to cart but does not display item
   return (
     <div>
         <h2>Your Cart</h2>
