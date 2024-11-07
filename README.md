@@ -6,20 +6,19 @@ An eCommerce store where internal users can directly view and manage products wi
 
 `npm run client-dev`
 
-## Deployment
-
 ## Built With
 
 - Node.js
 - React
 - Spring Boot
-- H2
+- MySQL
 
 ## Backlog
 
 Items to be implemented in future developments:
 
-- Adding items to a cart and perform a checkout of items thus creating an order to be added to the database.
+- Perform checkout of the items added to the cart, thus creating an order to be added to the database.
 - Allowing user login/logout
 - More robust error handling
 - Robust test cases
+
