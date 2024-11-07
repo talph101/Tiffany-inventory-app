@@ -10,14 +10,14 @@ export function Cart({ cart, goBackToList, removeFromCart }) {
     <div>
         <h2>Your Cart</h2>
         {cart.length > 0 ? (
-            <ul>
+            <ul className="cart-items">
                 {cart.map((item, index) => (
-                    <li key={index}>
-                        <img src={item.image} alt={item.name} style={{width: '200px'}}/>
-                        <h3>{item.name}</h3>
-                        <p>{item.descritption}</p>
-                        <p>Price: ${item.price.toFixed(2)}</p>
-                        <button className="deleteBtn" onClick={() => removeFromCart(item.id)}>Remove</button>
+                    <li key={index} className="cart-item">
+                        <img src={item.image} alt={item.name} className="cart-item-image"/>
+                        <h3 className="cart-item-name">{item.name}</h3>
+                        <p className="cart-item-description">{item.descritption}</p>
+                        <p className="cart-item-price">Price: ${item.price.toFixed(2)}</p>
+                        <button className="remove-cart-btn" onClick={() => removeFromCart(item.id)}>Remove</button>
                     </li>
                 ))}
             </ul>
