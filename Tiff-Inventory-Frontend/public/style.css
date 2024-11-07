@@ -96,6 +96,22 @@
   border: solid 1px red;
 }
 
+.deleteCartBtn {
+  border-radius: 5%;
+  padding: 1rem;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+.deleteCartBtn:hover {
+  background-color: white;
+  color: red;
+  transform: scale(1.05);
+  border: solid 1px red;
+}
+
 .editBtn {
   border-radius: 5%;
   padding: 1rem;
