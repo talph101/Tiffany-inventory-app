@@ -2,7 +2,7 @@ package com.tiffanysprojects.Tiffany_Inventory_Backend.entity;
 
 import jakarta.persistence.*;
 
-@Entity //used to specify a class a JPA Entity
+@Entity
 @Table(name = "items")
 public class Item {
     @Id
@@ -17,14 +17,7 @@ public class Item {
     private String image;
 
 
-//Don't need it
-//    No changes are needed since you already plan to add items to a cart dynamically.
-//When an item is added to the cart, programmatically set its relationship to the cart (without persisting it immediately as belonging to the cart in the database, if that's the desired behavior).
-//
-//Would you like guidance on how to handle these operations programmatically?
-
     public Item(){
-
     }
 
     public Item(Long id, String name, double price, String description, String category, String image) {
